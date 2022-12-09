@@ -1,3 +1,45 @@
+.menu {
+    border: 1px solid #e4e6e7;
+    /* display:inline-block */
+    padding: 1.5%;
+    text-align: center;
+    box-shadow: 0 2px 4px 0 rgba(116, 116, 116, 0.5);
+}
+
+.category {
+    padding:0.7%;
+    background-color: #f5f5f5;
+    color: #3f464c;
+    /* margin: 0 auto; */
+    height: 13%;
+    width: 6%;
+    border-radius: 20px;
+    border:none;
+}
+
+.category:hover {
+    font-weight: 600;
+}
+
+.category:active {
+    background-color:#1ecca2;
+    color:#f0fff9;
+}
+
+.category:visited {
+    background-color:#1ecca2;
+    color:#3f464c;
+    font-weight: 600;
+}
+
+.block {
+    display: inline-block;
+    border-radius: 5px;
+    width: 43%;
+    line-height: 1.15;
+    margin: 3% 1% 2% 2%;
+}
+
 .box {
     background-color: #e4e6e7;
     border-radius: 12px;
@@ -32,13 +74,6 @@
 
 }
 
-.block {
-    display: inline-block;
-    border-radius: 5px;
-    width: 45%;
-    line-height: 1.15;
-    margin: 3% 1% 2% 2%;
-}
 
 input {
     display: block;
@@ -46,21 +81,14 @@ input {
     height:40px;
     margin:0 auto; */
     background: #e4e6e7;
-    outline-color: gray;
+    outline-color: #d9dcdd;
     border: 7px solid #e4e6e7;
     border-radius: 3px;
     width: 95%;
     height:30%;
     text-align: right;
     font-size: 30px;
-}
-
-input:first-child {
-    margin-bottom: 0.5rem;
-}
-
-input:nth-child(2) {
-    margin-bottom: 1.5rem;
+    padding-bottom: 1%;
 }
 
 form {
@@ -71,4 +99,38 @@ form {
     font-weight: 100;
     font-size: 15px;
     padding-left:52%;
+}
+
+.option:active {
+    font-weight: 200;
+    color:#1ecca2;
+}
+
+.setting {
+    background-color: #191e23;
+    color:white;
+    padding:3% 0.7%;
+    width:15%;
+    border-radius: 12px;
+    border:none;
+    margin-right: 0.6%;
+}
+
+#calculate {
+    background-color: #1ecca2;
+    color:white;
+    padding:3% 0.7%;
+    width:57.8%;
+    border-radius: 12px;
+    border:none;
+}
+
+ul {
+    list-style-type: '⏥  ';
+    background-color: #f5f5f5;
+    color: #3f464c;
+    padding:3%;
+    padding-left: 8%;
+    border-radius: 12px;
+    line-height: 1.5em;
 }
