@@ -83,7 +83,7 @@
 
 .box {
     background-color: #ffffff;
-    border:1px solid #666666;
+    border:1px solid #aca6a6;
     border-radius: 5px;
     width:90%;
     height:30%;
@@ -93,7 +93,8 @@
 }
 
 .won {
-    color:#a5aaab;
+    /* color:#a5aaab; */
+    color:#1ecca2;
     font-size: 18px;
     padding-right: 4.5%;
 }
@@ -123,14 +124,14 @@ input {
     margin:0 auto; */
     background: #ffffff;
     outline-color: #d9dcdd;
-    border: 7px solid #e4e6e7;
+    border: none;
     border-radius: 5px;
     width: 95%;
     height:30%;
     margin:0 auto;
     text-align: right;
     font-size: 30px;
-    padding: 1% 0%;
+    padding-bottom: 2%;
 }
 
 form {
@@ -175,4 +176,9 @@ ul {
     padding-left: 8%;
     border-radius: 12px;
     line-height: 1.5em;
+}
+
+li {
+    margin-bottom: 0.7%;
+    line-height: 1.3em;
 }
