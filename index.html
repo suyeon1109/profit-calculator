@@ -41,35 +41,37 @@
             <div class="block2">
                 <h2>예상 월 매출</h2>
                 <div class="box">
-                    <p class="won">1,700만원</p>
+                    <p class="won"><span id="result1"></span>만원</p>
+                    
                     <!--won class 에 있는 것들은 다 백엔드로 form 입력할때 같이 바뀌게 만들어주세요-->
                     <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
-                        <input class="profit" id="month" type="text" placeholder="예상 월 매출액 ">
+                        <input class="profit" id="sales" type="text" placeholder="예상 월 매출액 ">
                     </form>
+                    
                 </div>
                 <p class="note">커피 업종 평균 월 매출액은 <span class="highlight">1,700만원</span>이예요</p>
                 
                 <h2>원가</h2>
                     <div class="box">
-                        <p class="won">612만원</p>
+                        <p class="won"><span id="result2"></span>만원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
-                            <input class="profit" id="month" type="text" placeholder="식료품 ">
+                            <input class="profit" id="fb" type="text" placeholder="식료품 ">
                         </form>
                     </div>
                     <div style="padding-bottom: 1%;"></div>
 
                     <div class="box">
                         <form>
-                            <p class="won">612만원</p>
-                            <input class="profit" id="month" type="text" placeholder="소모품 ">
+                            <p class="won"><span id="result3"></span>만원</p>
+                            <input class="profit" id="supplies" type="text" placeholder="소모품 ">
                         </form>
                     </div>
                     <div style="padding-bottom: 1%;"></div>
                     
                     <div class="box">
                         <form>
-                            <p class="won">612만원</p>
-                            <input class="profit" id="month" type="text" placeholder="기타 ">
+                            <p class="won"><span id="result4"></span>만원</p>
+                            <input class="profit" id="primeCost" type="text" placeholder="기타 ">
                         </form>
                     </div>
                     <p class="note">커피 업종 평균 원가는 매출의 <span class="highlight">36%</span>예요</p>
@@ -78,36 +80,36 @@
                     <!-- <span class="option">직접 입력 <span class="text">|</span> 시급으로 계산</span> -->
 
                     <div class="box">
-                        <p class="won">1,700만원</p>
+                        <p class="won" id="won5"><span id="result5"></span>만원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
-                            <input class="profit" id="month" type="text" placeholder="예상 직원 급여 ">
+                            <input class="profit" id="wage" type="text" placeholder="예상 직원 급여 ">
                         </form>
                     </div>
                     <p class="note">커피 업종 평균 급여는 매출의 <span class="highlight">20%</span>이예요</p>
 
                 <h2>임대료</h2>
                     <div class="box">
-                        <p class="won">1,700만원</p>
+                        <p class="won" id="won6"><span id="result6"></span>만원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
-                            <input class="profit" id="month" type="text" placeholder="임대료 ">
+                            <input class="profit" id="rentalFee" type="text" placeholder="임대료 ">
                         </form>
                     </div>
                     <p class="note">커피 업종 평균 임대료는 매출의 <span class="highlight">15%</span>이예요</p>
 
                 <h2>관리비</h2>
                     <div class="box">
-                        <p class="won">1,700만원</p>
+                        <p class="won" id="won7"><span id="result7"></span>만원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
-                            <input class="profit" id="month" type="text" placeholder="관리비 ">
+                            <input class="profit" id="maintanenceFee" type="text" placeholder="관리비 ">
                         </form>
                     </div>
                     <p class="note">커피 업종 평균 관리비는 매출의 <span class="highlight">3%</span>이예요</p>
 
                 <h2>판매 수수료</h2>
                     <div class="box">
-                        <p class="won">51만원</p>
+                        <p class="won" id="won8"><span id="result8"></span>만원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
-                            <input class="profit" id="month" type="text" placeholder="판매 수수료 ">
+                            <input class="profit" id="fee" type="text" placeholder="판매 수수료 ">
                         </form>
                     </div>
                     <p class="note">커피 업종 평균 판매 수수료는 매출의 <span class="highlight">3%</span>이예요</p>
@@ -137,7 +139,52 @@
             </ul>
         </div> -->
         
-        
+        <script>
+            sales.oninput = function() {
+                result1.innerHTML = sales.value;
+                addCommas(sales);
+            }
+
+            // sales.oninput=addCommas(sales);
+
+            fb.oninput = function() {
+                result2.innerHTML = fb.value;
+                addCommas(result2);
+            }
+
+            supplies.oninput = function() {
+                result3.innerHTML = supplies.value;
+            }
+
+            primeCost.oninput = function() {
+                result4.innerHTML = primeCost.value;
+            }
+
+            wage.oninput = function() {
+                result5.innerHTML = wage.value;
+            }
+
+            rentalFee.oninput = function() {
+                result6.innerHTML = rentalFee.value;
+            }
+
+            maintanenceFee.oninput = function() {
+                result7.innerHTML = maintanenceFee.value;
+            }
+            fee.oninput = function() {
+                result8.innerHTML = fee.value;
+            }
+
+            function addCommas(input) {
+                let number = input.value.match(/^\d+(\.\d+)?$/);
+                if (number) {
+                    number = number[0].replace(/(\d)(?=(\d{3})+(\.\d+)?$)/g, "$1,");
+                    input.value = number;
+                }
+            }
+
+        </script>
+
     </body>
 
 </html>
