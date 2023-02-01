@@ -26,9 +26,9 @@
         <main class="maxWidth">
             <div class="block1">
                 <div class="result">
-                    <h4>예상 월 매출이 1,700만원 일때,</h4>
-                    <h3>수익률은 23%
-                    <br>월 수익은 약 391만원입니다.</h3>
+                    <h4>예상 월 매출이 <span id="monthlyExpected"></span>원 일때,</h4>
+                    <h3>수익률은 <span id="profitRate"></span>%
+                    <br>월 수익은 약 <span id="finalProfit"></span>원입니다.</h3>
                 </div>
 
                 <ul>
@@ -41,7 +41,7 @@
             <div class="block2">
                 <h2>예상 월 매출</h2>
                 <div class="box">
-                    <p class="won"><span id="result1"></span>만원</p>
+                    <p class="won"><span id="result1"></span>원</p>
                     
                     <!--won class 에 있는 것들은 다 백엔드로 form 입력할때 같이 바뀌게 만들어주세요-->
                     <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
@@ -53,7 +53,7 @@
                 
                 <h2>원가</h2>
                     <div class="box">
-                        <p class="won"><span id="result2"></span>만원</p>
+                        <p class="won"><span id="result2"></span>원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
                             <input class="profit" id="fb" type="text" placeholder="식료품 ">
                         </form>
@@ -62,7 +62,7 @@
 
                     <div class="box">
                         <form>
-                            <p class="won"><span id="result3"></span>만원</p>
+                            <p class="won"><span id="result3"></span>원</p>
                             <input class="profit" id="supplies" type="text" placeholder="소모품 ">
                         </form>
                     </div>
@@ -70,7 +70,7 @@
                     
                     <div class="box">
                         <form>
-                            <p class="won"><span id="result4"></span>만원</p>
+                            <p class="won"><span id="result4"></span>원</p>
                             <input class="profit" id="primeCost" type="text" placeholder="기타 ">
                         </form>
                     </div>
@@ -80,7 +80,7 @@
                     <!-- <span class="option">직접 입력 <span class="text">|</span> 시급으로 계산</span> -->
 
                     <div class="box">
-                        <p class="won" id="won5"><span id="result5"></span>만원</p>
+                        <p class="won" id="won5"><span id="result5"></span>원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
                             <input class="profit" id="wage" type="text" placeholder="예상 직원 급여 ">
                         </form>
@@ -89,7 +89,7 @@
 
                 <h2>임대료</h2>
                     <div class="box">
-                        <p class="won" id="won6"><span id="result6"></span>만원</p>
+                        <p class="won" id="won6"><span id="result6"></span>원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
                             <input class="profit" id="rentalFee" type="text" placeholder="임대료 ">
                         </form>
@@ -98,7 +98,7 @@
 
                 <h2>관리비</h2>
                     <div class="box">
-                        <p class="won" id="won7"><span id="result7"></span>만원</p>
+                        <p class="won" id="won7"><span id="result7"></span>원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
                             <input class="profit" id="maintanenceFee" type="text" placeholder="관리비 ">
                         </form>
@@ -107,7 +107,7 @@
 
                 <h2>판매 수수료</h2>
                     <div class="box">
-                        <p class="won" id="won8"><span id="result8"></span>만원</p>
+                        <p class="won" id="won8"><span id="result8"></span>원</p>
                         <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
                             <input class="profit" id="fee" type="text" placeholder="판매 수수료 ">
                         </form>
@@ -175,14 +175,58 @@
                 result8.innerHTML = fee.value;
             }
 
-            function addCommas(input) {
-                let number = input.value.match(/^\d+(\.\d+)?$/);
-                if (number) {
-                    number = number[0].replace(/(\d)(?=(\d{3})+(\.\d+)?$)/g, "$1,");
-                    input.value = number;
-                }
+            // function addCommas(input) {
+            //     let number = input.value.match(/^\d+(\.\d+)?$/);
+            //     if (number) {
+            //         number = number[0].replace(/(\d)(?=(\d{3})+(\.\d+)?$)/g, "$1,");
+            //         input.value = number;
+            //     }
+            // }
+
+            var btn = document.getElementById("calculate");
+            var displayPR = document.getElementById("profitRate");
+            var displayFP = document.getElementById("profitRate");
+
+            
+          
+            btn.onclick = function () {
+                var sales = Number(document.getElementById("result1").innerText);
+                var fb = Number(document.getElementById("result2").innerText);
+                var supplies = Number(document.getElementById("result3").innerText);
+                var primeCost = Number(document.getElementById("result4").innerText);
+                var wage = Number(document.getElementById("result5").innerText);
+                var rentalFee = Number(document.getElementById("result6").innerText);
+                var maintanenceFee = Number(document.getElementById("result7").innerText);
+                var fee = Number(document.getElementById("result8").innerText);
+                var profitRate=0,finalProfit=0;
+
+                console.log(finalProfit,sales);
+                
+
+                finalProfit = sales - (fb+supplies+primeCost+wage+rentalFee+maintanenceFee+fee);
+                console.log(finalProfit);
+
+                profitRate = finalProfit/sales*100;
+                console.log(profitRate);
+
+                displayPR.innerHTML = finalProfit;
+                displayFP.innerHTML = profitRate;
             }
 
+            /*
+            1. 계산하기 버튼을 눌렀을때 계산된 숫자 띄우기
+            1) 숫자 띄우기
+                id="monthlyExpected"
+                id="profitRate"
+                id="profitRate"
+                에 숫자 띄우기 tag=span
+                <button id="calculate">계산하기</button> 가 클릭되었을때
+
+                how to print numbers when button is clicked javascript
+
+            2) 숫자 계산
+
+            */
         </script>
 
     </body>
