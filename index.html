@@ -185,8 +185,8 @@
 
             var btn = document.getElementById("calculate");
             var displayPR = document.getElementById("profitRate");
-            var displayFP = document.getElementById("profitRate");
-
+            var displayFP = document.getElementById("finalProfit");
+            var displayME = document.getElementById("monthlyExpected");
             
           
             btn.onclick = function () {
@@ -206,11 +206,12 @@
                 finalProfit = sales - (fb+supplies+primeCost+wage+rentalFee+maintanenceFee+fee);
                 console.log(finalProfit);
 
-                profitRate = finalProfit/sales*100;
+                profitRate = (finalProfit/sales*100).toFixed(2);
                 console.log(profitRate);
 
-                displayPR.innerHTML = finalProfit;
-                displayFP.innerHTML = profitRate;
+                displayPR.innerHTML = profitRate;
+                displayFP.innerHTML = finalProfit;
+                displayME.innerHTML = sales;
             }
 
             /*
