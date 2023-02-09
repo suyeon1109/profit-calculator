@@ -6,6 +6,8 @@
         <title>내일의창업 수익계산기</title>
         <link rel="icon" type="image/x-icon" href=" ">
         <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body style="width:100%; margin:0%">
@@ -19,22 +21,38 @@
                     <a href="https://tmr-founders.com/virtual-store">창업하기</a>
                 </span>
                 <a id="login" href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Ftmr-founders.com%252Fapi%252Fauth%252Fcallback%252Fkakao%26state%3D%252Fvirtual-store%26through_account%3Dtrue%26client_id%3Da50c22fb3b8e6557ac9bc8262d90611f">로그인</a>
+            </div>
 
+            <div class="hamburgerBtn">
+                <img class="home" src="https://tmr-founders.com/_next/image?url=%2Fimages%2Flogo%2Flogo.png&w=3840&q=75">
+                <ul class="menu">
+                    <li><a class="menuItem" href="https://tmr-founders.com/story">스토리</a></li>
+                    <li><a class="menuItem" href="https://tmr-founders.com/newsfeed">뉴스피드</a></li>
+                    <li><a class="menuItem" href="https://tmr-founders.com/community">커뮤니티</a></li>
+                    <li><a class="menuItem" href="https://tmr-founders.com/virtual-store">창업하기</a></li>
+                </ul>
+                <button class="hamburger">
+                    <!-- material icons https://material.io/resources/icons/ -->
+                    <i class="menuIcon material-icons">menu</i>
+                    <i class="closeIcon material-icons">close</i>
+                </button>
             </div>
         </header>
 
         <main class="maxWidth">
             <div class="block1">
-                <div class="result">
-                    <h4>예상 월 매출이 <span id="monthlyExpected"></span>원 일때,</h4>
-                    <h3>수익률은 <span id="profitRate"></span>%
-                    <br>월 수익은 약 <span id="finalProfit"></span>원입니다.</h3>
-                </div>
+                <!-- <div class="result">
+                    <h4>예상 월 매출이 원 일때,</h4>
+                    <h3>수익률은 %
+                    <br>월 수익은 약 원입니다.</h3>
+                </div> -->
 
                 <ul>
-                    <li>  업종별 평균 예상 매출과 지출 비용은 내일의창업이 조사한<br>내용입니다.</li>
-                    <li>  감가상각, 세금(부가가치세·종합소득세), 점주 인건비를 고<br>려하지 않습니다.</li>
-                    <li>  실제 창업 조건과 운영 환경에 따라 오차가 발생할 수 있으<br>니 참고용으로 이용해 주세요.</li>
+                    <li>제시된 평균 예상 매출과 지출 비용은<br>통계자료에 근거한 내용입니다.</li>
+                    <br>
+                    <li>💵   예상하시는 월 매출이 <span id="monthlyExpected"></span>원 일때,</li>
+                    <li>💵   수익률은 약 <span id="profitRate"></span>%이며,</li> 
+                    <li>💵   월 발생하시는 수익은 <span id="finalProfit"></span>원입니다.</li>
                 </ul>
             </div>
 
@@ -50,6 +68,15 @@
                     
                 </div>
                 <p class="note">커피 업종 평균 월 매출액은 <span class="highlight">1,700만원</span>이예요</p>
+
+                <h2>임대료</h2>
+                    <div class="box">
+                        <p class="won" id="won6"><span id="result6"></span>원</p>
+                        <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
+                            <input class="profit" id="rentalFee" type="text" placeholder="임대료 ">
+                        </form>
+                    </div>
+                    <p class="note">커피 업종 평균 임대료는 매출의 <span class="highlight">15%</span>이예요</p>
                 
                 <h2>원가</h2>
                     <div class="box">
@@ -87,15 +114,6 @@
                     </div>
                     <p class="note">커피 업종 평균 급여는 매출의 <span class="highlight">20%</span>이예요</p>
 
-                <h2>임대료</h2>
-                    <div class="box">
-                        <p class="won" id="won6"><span id="result6"></span>원</p>
-                        <form name="monthlyProfit" action="" method="post"> <!--post: 정보를 보낸다 / get: 가져온다-->
-                            <input class="profit" id="rentalFee" type="text" placeholder="임대료 ">
-                        </form>
-                    </div>
-                    <p class="note">커피 업종 평균 임대료는 매출의 <span class="highlight">15%</span>이예요</p>
-
                 <h2>관리비</h2>
                     <div class="box">
                         <p class="won" id="won7"><span id="result7"></span>원</p>
@@ -117,7 +135,6 @@
                     <div style="margin-bottom:5%"></div>
                     <div>
                         <button class="setting" id="reset">초기화</button> <!--백엔드로 이 버튼 누르면 form input에 다 0 들어가게 해주세요-->
-                        <button class="setting" id="average">업종평균</button> <!--백엔드로 이 버튼 누르면 form input에 다 업종 평균값들 들어가게 해주세요-->
                         <button id="calculate">계산하기</button> <!--이 버튼이 눌렸을때 오른쪽 블록이 나타나게 해주세요-->
                     </div>
 
@@ -140,6 +157,35 @@
         </div> -->
         
         <script>
+            const menu = document.querySelector(".menu");
+            const menuItems = document.querySelectorAll(".menuItem");
+            const hamburger= document.querySelector(".hamburger");
+            const closeIcon= document.querySelector(".closeIcon");
+            const menuIcon = document.querySelector(".menuIcon");
+
+            function toggleMenu() {
+            if (menu.classList.contains("showMenu")) {
+                menu.classList.remove("showMenu");
+                closeIcon.style.display = "none";
+                menuIcon.style.display = "block";
+            } else {
+                menu.classList.add("showMenu");
+                closeIcon.style.display = "block";
+                menuIcon.style.display = "none";
+            }
+            }
+
+            hamburger.addEventListener("click", toggleMenu);
+
+
+
+            menuItems.forEach( 
+                function(menuItem) { 
+                    menuItem.addEventListener("click", toggleMenu);
+                }
+            )
+
+
             sales.oninput = function() {
                 result1.innerHTML = sales.value;
                 addCommas(sales);
@@ -200,14 +246,14 @@
                 var fee = Number(document.getElementById("result8").innerText);
                 var profitRate=0,finalProfit=0;
 
-                console.log(finalProfit,sales);
+                //console.log(finalProfit,sales);
                 
 
                 finalProfit = sales - (fb+supplies+primeCost+wage+rentalFee+maintanenceFee+fee);
-                console.log(finalProfit);
+                //console.log(finalProfit);
 
                 profitRate = (finalProfit/sales*100).toFixed(2);
-                console.log(profitRate);
+                //console.log(profitRate);
 
                 displayPR.innerHTML = profitRate;
                 displayFP.innerHTML = finalProfit;
@@ -227,7 +273,14 @@
 
             2) 숫자 계산
 
+            reset
             */
+
+            var rst = document.getElementById("reset");
+            
+            rst.onclick = function () {
+                window.location.reload();
+            }
         </script>
 
     </body>
