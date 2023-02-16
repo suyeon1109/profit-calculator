@@ -217,6 +217,40 @@
         font-size: 14px;
     }
 
+    .space {
+        /* display: inline-block; */
+        margin-left: 8%;
+        /* padding-right: 19%; */
+        /* float:right; */
+    }
+
+    #login {
+        display: none;
+    }
+
+    .topnav a {
+        padding:0.5% 0.8%;
+        border-radius: 5px;
+        text-decoration: none;
+        color:#333333;
+        line-height: 1.5;
+        font-size: 16px;
+        font-weight: 700;
+        word-break: keep-all;
+        font-family: AppleSDGothicNeo,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    }
+
+    .topnav a:hover {
+        background-color: #e1e2e248;
+    }
+
+    .home {
+        width:20%;
+        /* float:left; 
+        margin-left: 15.3%; */
+        
+    }
+
     input {
         font-size: 16px;
     }
@@ -235,45 +269,5 @@
     .block2 {
         width:100%;
         overflow-x: hidden;
-    }
-
-    .topnav {
-        display:none;
-    }
-
-    .hamburgerBtn {
-        display:block;
-        position: fixed;
-        z-index: 100;
-        top: 0.9rem;
-        right: 1rem;
-        /* padding: 4px; */
-        /* border: black solid 1px; */
-        background: white;
-        cursor: pointer;
-        float:right;
-    }
-
-    .closeIcon {
-        display: none;
-    }
-
-    .menu {
-        position: fixed;
-        transform: translateY(-100%);
-        transition: transform 0.2s;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 99;
-        background: white;
-        color: black;
-        list-style: none;
-        padding-top: 4rem;
-    }
-
-    .showMenu {
-        transform: translateY(0);
     }
 }
