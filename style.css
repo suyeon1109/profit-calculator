@@ -245,10 +245,15 @@
     }
 
     .home {
-        width:20%;
+        width:27%;
+        margin-left:-7%;
         /* float:left; 
         margin-left: 15.3%; */
         
+    }
+
+    .end {
+        margin-right:-14%;
     }
 
     input {
@@ -257,13 +262,11 @@
 
     .block1 {
         float:none;
-        /* clear:both; */
-        /* padding-bottom: 1%; */
         margin-bottom: -3%;
         width:93%;
         margin:0 auto;
         position:sticky;
-        top: 0px;
+        top: px;
     }
 
     .block2 {
